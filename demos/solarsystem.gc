@@ -1,0 +1,69 @@
+#include "sphere.dat"
+
+void main()
+{
+	Line l;
+	Object moon_r,earth,moon,sun_system,sun;
+	Object earth_system;
+
+	Matrix m;
+
+	sun_system.begin();
+
+	setTextureDir("textures");
+	earth_system.begin();
+		setTexture("moon.bmp");
+	  	moon_r.begin();
+		 moon.begin();
+			l=createSphereGene();
+			l.sweep(40);
+		   moon.setOrigin(0,0,0);
+		 moon.end();	
+		 moon.scale(.2,.2,.2);
+		 m.init();
+		 m.rotate(0,.5,0);
+		 moon.setMotion(m);  // set the moon spinning
+
+	  	moon_r.end();
+
+		moon_r.setOrigin(0,0,0);
+		moon_r.translate(0,0,-80);
+	
+		m.init();
+		m.rotate(0,1,0);
+		moon_r.setMotion(m);
+
+		setTexture("earth.bmp");
+		earth.begin();
+			l=createSphereGene();
+			l.sweep(40);
+		   earth.setOrigin(0,0,0);
+		earth.end();
+		m.init();
+		m.rotate(0,1,0);
+		earth.setMotion(m);		// set the earth spinning
+
+	earth_system.end();
+	earth_system.setOrigin(0,0,0);
+
+	earth_system.translate(0,0,-500);
+	m.init();
+	m.rotate(0,0.5,0);
+	earth_system.setMotion(m);  // set the earth system spinning
+
+	setTexture("sun.bmp");
+
+	sun.begin();
+		l=createSphereGene();
+		l.sweep(40);
+	sun.setOrigin(0,0,0);
+	sun.end();	
+	sun.scale(2,2,2);
+	m.init();
+	m.rotate(0,0.5,0);
+	sun.setMotion(m);
+
+	sun_system.end();
+	sun_system.translate(0,-200,-1400);
+
+}

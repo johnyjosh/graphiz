@@ -1,0 +1,13 @@
+#include "cube.h"
+
+void main()
+{
+	Object box;
+
+	setTextureDir("textures");
+	setTexture("metal.bmp");
+
+	box=createCube(100,100);
+	box.rotate(45,45,45);
+	box.translate(0,0,-300);
+}

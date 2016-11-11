@@ -1,0 +1,38 @@
+#include "square.dat"
+#include "cube.h"
+
+void main()
+{
+	Object snake;
+	Line gene,newl,savel;
+	int i,N,k;
+	int a;
+
+	N=20;a=50;
+	setTexture("textures/tiles.bmp");
+	snake.begin();
+
+		gene.begin();
+			new Point(-a,+a,0);
+			new Point(-a,-a,0);
+			new Point(+a,-a,0);
+			new Point(+a,+a,0);
+			new Point(-a,+a,0);
+		gene.end();
+
+
+		savel=gene;
+		k=-1;
+
+		for (i=1;i<N;i++) {
+			setTexture("textures/tiles.bmp");
+			k=-k;
+			newl=new Line(savel);
+			newl.translate(k*80,0,-400);
+			newl.rotate(0,17,0);
+			stitch(savel,newl);
+			savel=newl;
+		}
+    stitch(newl,gene);
+	snake.end();
+}

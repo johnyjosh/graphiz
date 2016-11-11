@@ -1,0 +1,32 @@
+void main()
+{
+	int a;
+	Point p1,p2,p3,p4,p5,p6,p7,p8;
+	Quad  q1,q2,q3,q4,q5,q6;
+	Object cube;
+
+	a=50;
+
+	cube.begin();
+		p1=new Point (-a,-a,-a);
+		p2=new Point (-a,+a,-a);
+		p3=new Point (+a,+a,-a);
+		p4=new Point (+a,-a,-a);
+		p5=new Point (-a,-a,+a);
+		p6=new Point (-a,+a,+a);
+		p7=new Point (+a,+a,+a);
+		p8=new Point (+a,-a,+a);
+
+		q1=new Quad (p1,p2,p3,p4);	// front 
+		q2=new Quad (p7,p6,p5,p8);	// back
+		q3=new Quad (p6,p2,p1,p5);	// left
+		q4=new Quad (p3,p7,p8,p4);	// right
+		q5=new Quad (p3,p2,p6,p7);	// up
+		q6=new Quad (p4,p8,p5,p1);	// down
+
+	cube.setOrigin(0,0,0);
+	cube.end();
+
+	cube.rotate(45,45,45);
+	cube.translate(0,0,-300);
+}

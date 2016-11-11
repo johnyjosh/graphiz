@@ -1,0 +1,17 @@
+#include "pawn.dat"
+
+void main()
+{
+	Line pawnOutline;
+	Object pawn;
+
+	setTexture("textures/wood.bmp");
+	pawn.begin();
+		pawnOutline = createPawnOutline();
+		pawnOutline.sweep(20);
+	pawn.end();   /* now the pawn object has 'captured' all the quads
+				   * created between the begin() and this end().
+				   */
+	pawn.translate(0,-100,-400);
+}
+

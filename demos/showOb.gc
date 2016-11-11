@@ -1,0 +1,15 @@
+#include "../sweep_gen/object01.dat"
+
+void main()
+{
+	Line outline;
+	Object b;
+
+	setTexture("textures/wood.bmp");
+	b.begin();
+		outline = createGene();
+		outline.sweep(20);
+	b.end();  
+	b.translate(0,-100,-400);
+}
+
